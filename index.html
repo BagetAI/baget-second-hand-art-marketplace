@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Trusted Second-Hand Art Marketplace</title>
+  <meta name="description" content="A trusted marketplace for second-hand limited-edition prints and affordable original artworks." />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display&family=Work+Sans:wght@400;600&display=swap');
+
+    :root {
+      --color-primary: #6b4a3e;
+      --color-accent: #bb6a4a;
+      --color-neutral-light: #f9f6f2;
+      --color-neutral-muted: #9b8f8c;
+      --color-neutral-dark: #3a2e2a;
+      --font-serif: 'Playfair Display', serif;
+      --font-sans: 'Work Sans', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: var(--color-neutral-light);
+      color: var(--color-neutral-dark);
+      font-family: var(--font-sans);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    a {
+      color: var(--color-accent);
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: var(--color-primary);
+      text-decoration: underline;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .container {
+      width: 90vw;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 2rem 0 4rem;
+    }
+
+    header {
+      background: white;
+      padding: 2rem 0;
+      box-shadow: 0 2px 6px rgb(0 0 0 / 0.05);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    header h1 {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--color-primary);
+      font-size: 1.8rem;
+      margin: 0;
+      text-align: center;
+      letter-spacing: 0.05em;
+    }
+
+    main {
+      margin-top: 3rem;
+    }
+
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--color-neutral-muted);
+    }
+
+    .hero h2 {
+      font-family: var(--font-serif);
+      font-size: 2.8rem;
+      font-weight: 700;
+      margin: 0 0 1rem 0;
+      max-width: 650px;
+      color: var(--color-primary);
+    }
+
+    .hero p {
+      font-size: 1.125rem;
+      color: var(--color-neutral-muted);
+      max-width: 600px;
+      margin: 0 0 2rem;
+      line-height: 1.5;
+    }
+
+    .btn-primary {
+      background: var(--color-primary);
+      color: white;
+      border: none;
+      padding: 1rem 2rem;
+      font-weight: 600;
+      font-size: 1.125rem;
+      border-radius: 9999px;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgb(107 74 62 / 0.4);
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      user-select: none;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent);
+      box-shadow: 0 6px 16px rgb(187 106 74 / 0.6);
+    }
+
+    .section {
+      margin-top: 3.5rem;
+    }
+
+    h3 {
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--color-primary);
+      font-size: 1.75rem;
+      margin-bottom: 1rem;
+      text-align: center;
+    }
+
+    p.lead {
+      text-align: center;
+      color: var(--color-neutral-muted);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      font-size: 1.1rem;
+      line-height: 1.5;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    @media (min-width: 600px) {
+      .features {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    .feature {
+      background: white;
+      padding: 1.8rem 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 3px 10px rgb(0 0 0 / 0.07);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      color: var(--color-neutral-dark);
+      font-size: 0.95rem;
+      font-weight: 600;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .feature:hover {
+      box-shadow: 0 8px 20px rgb(107 74 62 / 0.3);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--color-accent);
+    }
+
+    .trust-section {
+      margin-top: 4rem;
+      background: white;
+      border-radius: 12px;
+      max-width: 720px;
+      margin-left: auto;
+      margin-right: auto;
+      padding: 2rem 2.5rem;
+      box-shadow: 0 4px 16px rgb(0 0 0 / 0.1);
+      text-align: center;
+    }
+
+    .trust-section p {
+      color: var(--color-neutral-muted);
+      font-size: 1rem;
+      margin: 0.7rem 0 2rem;
+      max-width: 90%;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.4;
+    }
+
+    .trust-logos {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 1.5rem;
+    }
+
+    .trust-logos img {
+      height: 40px;
+      filter: grayscale(100%) opacity(0.6);
+      transition: filter 0.3s ease;
+    }
+
+    .trust-logos img:hover {
+      filter: none;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      color: var(--color-neutral-muted);
+      padding: 2rem 0;
+      border-top: 1px solid var(--color-neutral-muted);
+      margin-top: 6rem;
+    }
+
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Second-Hand Art Marketplace</h1>
+  </header>
+
+  <main class="container">
+    <section class="hero" aria-label="Introduction to marketplace">
+      <h2>Discover Character-Rich Second-Hand Art You’ll Actually Want to Live With</h2>
+      <p>Trusted online marketplace for affordable original artworks and limited-edition prints, verified for authenticity, condition, and provenance.</p>
+      <a href="#list-art" class="btn-primary" aria-label="Get started - List or browse art">Browse Listings &amp; Sell Art</a>
+    </section>
+
+    <section class="section features" aria-label="Core features">
+      <h3>Why Choose Our Marketplace?</h3>
+      <div class="features">
+        <article class="feature" tabindex="0">
+          <div class="feature-icon" aria-hidden="true">🖼️</div>
+          <h4>Curated Authenticity</h4>
+          <p>Every piece is verified with provenance documents and condition grading for your confidence.</p>
+        </article>
+        <article class="feature" tabindex="0">
+          <div class="feature-icon" aria-hidden="true">🔍</div>
+          <h4>Transparent Pricing</h4>
+          <p>Clear estimated price ranges and comparable sales help sellers and buyers understand true value.</p>
+        </article>
+        <article class="feature" tabindex="0">
+          <div class="feature-icon" aria-hidden="true">🤝</div>
+          <h4>Secure & Simple Selling</h4>
+          <p>Easy seller onboarding with expert concierge support and safe transaction handling.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" aria-label="How it works">
+      <h3>How It Works</h3>
+      <p class="lead">Sell or buy second-hand artworks with ease and trust. Our platform connects design-conscious collectors with sellers ready to refresh their collections, all backed by transparent details and secure logistics.</p>
+      <ol style="max-width: 480px; margin: auto; padding: 0 1rem; color: var(--color-neutral-dark); font-weight: 600;">
+        <li style="margin-bottom: 1rem;">1. Browse curated listings or create your seller account.</li>
+        <li style="margin-bottom: 1rem;">2. Upload provenance & condition photos to verify your artwork.</li>
+        <li style="margin-bottom: 1rem;">3. Set your price with transparent guidance and expert support.</li>
+        <li style="margin-bottom: 1rem;">4. Connect securely and ship with confidence through our trusted partners.</li>
+        <li>5. Enjoy your new art or a smooth sale commission-free or with minimal fees.</li>
+      </ol>
+    </section>
+
+    <section id="list-art" class="section" aria-label="Call to action to sell or buy">
+      <h3>Ready to Find Your Next Piece or Sell with Confidence?</h3>
+      <p class="lead">Join 100+ design-conscious buyers and sellers experiencing the easiest, safest second-hand art marketplace.</p>
+      <a href="mailto:jefroykin@gmail.com" class="btn-primary" aria-label="Contact founder to start selling or buying">Get Started Today</a>
+    </section>
+
+    <section class="trust-section" aria-label="Trust and partner logos">
+      <p>We partner with trusted authentication experts, logistics providers, and art communities to provide a safe, transparent experience.</p>
+      <div class="trust-logos" role="list">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/FCA_Logo.svg/1280px-FCA_Logo.svg.png" alt="Fine Art Authentication Partner Logo" loading="lazy"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/3/3a/FedEx_Express.svg" alt="Trusted Logistics Partner Logo" loading="lazy"/>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f7/Art_Museum_icon.svg" alt="Art Community Partner Logo" loading="lazy" style="filter: invert(0.3);"/>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2024 Second-Hand Art Marketplace. All rights reserved.
+  </footer>
+</body>
+</html>
